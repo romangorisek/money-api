@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/payment', 'PaymentTypeController@all');
+
+Route::get('/payment/{id}', 'PaymentTypeController@get');
+
+Route::get('/del/{id}', 'PaymentTypeController@delete');
