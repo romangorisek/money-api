@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PaymentType;
 
 class PaymentTypeController extends CrudController
 {
-    protected $model = "\App\PaymentType";
+    protected $model = PaymentType::class;
 }
