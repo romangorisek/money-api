@@ -2,7 +2,8 @@
 
 namespace App;
 
-class PaymentType extends Model
+
+class Account extends Model
 {
     
 }

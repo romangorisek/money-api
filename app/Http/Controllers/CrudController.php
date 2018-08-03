@@ -22,15 +22,15 @@ class CrudController extends Controller {
         return ($this->model)::find($id);
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        if (($this->model)::create($request->all())) {
-            return ["Item crated"];
+        if ($item = ($this->model)::create(request($this->fields))) {
+            return $item;
         }
         return ["Item could not be created"];
     }
 
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $element = ($this->model)::find($id);
 
@@ -38,8 +38,8 @@ class CrudController extends Controller {
             // throw item not found exception
         }
 
-        if ($element->update($request->all())) {
-            return ["Item updated"];
+        if ($element->update(request($this->fields))) {
+            return $element;
         }
         return ["Item could not be updated"];
     }

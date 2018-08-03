@@ -17,12 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/payment-types', 'PaymentTypeController@all');
-
-Route::get('/payment-types/{id}', 'PaymentTypeController@get');
-
-Route::post('/payment-types', 'PaymentTypeController@create');
-
-Route::put('/payment-types/{id}', 'PaymentTypeController@update');
-
-Route::delete('/payment-types/{id}', 'PaymentTypeController@delete');
+Route::prefix('accounts')->group(function () {
+    Route::get('/', 'AccountController@all');
+    Route::post('/', 'AccountController@create');
+    Route::get('/{id}', 'AccountController@get');
+    Route::put('/{id}', 'AccountController@update');
+    Route::delete('/{id}', 'AccountController@delete');
+});
+Route::prefix('transactions')->group(function () {
+    Route::get('/', 'TransactionController@all');
+    Route::post('/', 'TransactionController@create');
+    Route::get('/{id}', 'TransactionController@get');
+    Route::put('/{id}', 'TransactionController@update');
+    Route::delete('/{id}', 'TransactionController@delete');
+});
