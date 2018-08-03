@@ -31,3 +31,17 @@ Route::prefix('transactions')->group(function () {
     Route::put('/{id}', 'TransactionController@update');
     Route::delete('/{id}', 'TransactionController@delete');
 });
+Route::prefix('expenses')->group(function () {
+    Route::get('/', 'ExpenseController@all');
+    Route::post('/', 'ExpenseController@create');
+    Route::get('/{id}', 'ExpenseController@get');
+    Route::put('/{id}', 'ExpenseController@update');
+    Route::delete('/{id}', 'ExpenseController@delete');
+});
+Route::prefix('incomes')->group(function () {
+    Route::get('/', 'IncomeController@all');
+    Route::post('/', 'IncomeController@create');
+    Route::get('/{id}', 'IncomeController@get');
+    Route::put('/{id}', 'IncomeController@update');
+    Route::delete('/{id}', 'IncomeController@delete');
+});

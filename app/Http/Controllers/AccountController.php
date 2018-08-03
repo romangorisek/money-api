@@ -8,5 +8,5 @@ use App\Account;
 class AccountController extends CrudController
 {
     protected $model = Account::class;
-    protected $fields = ['title', 'thumb'];
+    protected $fields = ['title', 'balance', 'thumb'];
 }
