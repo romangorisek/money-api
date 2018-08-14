@@ -16,7 +16,7 @@ class CreateAccountsTable extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string("title");
-            $table->float("balace");
+            $table->float("balance");
             $table->string("thumb")->nullable(true)->default(null);
             $table->timestamps();
         });
