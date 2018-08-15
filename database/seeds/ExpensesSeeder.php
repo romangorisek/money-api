@@ -31,7 +31,8 @@ class ExpensesSeeder extends Seeder
             "Dvig gotovine",
             "Polog gotovine",
             "Erik",
-            "Potovanja"
+            "Potovanja",
+            "Drugo"
         ];
         foreach ($expenses as $expense) {
             $ex =  new \App\Expense;
