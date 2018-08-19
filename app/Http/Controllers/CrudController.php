@@ -27,7 +27,7 @@ class CrudController extends Controller {
         if ($item = ($this->model)::create(request($this->fields))) {
             return $item;
         }
-        return ["Item could not be created"];
+        throw new \Exception("Item could not be created");
     }
 
     public function update($id)
@@ -41,7 +41,7 @@ class CrudController extends Controller {
         if ($element->update(request($this->fields))) {
             return $element;
         }
-        return ["Item could not be updated"];
+        throw new \Exception("Item could not be updated");
     }
     
     public function delete($id)
