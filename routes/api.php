@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => ['catchExceptions', 'client']], function() {
     Route::prefix('accounts')->group(function () {
         Route::get('/', 'AccountController@all');
         Route::post('/', 'AccountController@create');
