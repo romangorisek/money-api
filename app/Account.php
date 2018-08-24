@@ -2,8 +2,7 @@
 
 namespace App;
 
-
-class Account extends Model
+class Account extends ModelWithClicks
 {
-    
+    protected static $tableName = 'accounts';
 }

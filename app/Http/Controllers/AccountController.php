@@ -9,4 +9,9 @@ class AccountController extends CrudController
 {
     protected $model = Account::class;
     protected $fields = ['title', 'balance', 'thumb'];
+
+    public function all()
+    {
+        return Account::allSortedByClicks();
+    }
 }

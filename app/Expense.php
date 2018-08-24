@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Expense extends Model
+class Expense extends ModelWithClicks
 {
-    //
+    protected static $tableName = 'expenses';
 }

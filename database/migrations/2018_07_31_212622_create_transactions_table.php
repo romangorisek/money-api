@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->dateTime("done_on");
             $table->float("amount");
             $table->uuid("type_id");
+            $table->uuid("account_id");
             $table->timestamps();
         });
     }

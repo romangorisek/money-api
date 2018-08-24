@@ -9,4 +9,9 @@ class ExpenseController extends CrudController
 {
     protected $model = Expense::class;
     protected $fields = ['title'];
+
+    public function all()
+    {
+        return Expense::allSortedByClicks();
+    }
 }

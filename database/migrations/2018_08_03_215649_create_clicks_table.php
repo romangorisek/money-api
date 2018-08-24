@@ -15,6 +15,7 @@ class CreateClicksTable extends Migration
     {
         Schema::create('clicks', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('user_id');
             $table->string('model');
             $table->uuid('value');
             $table->timestamps();

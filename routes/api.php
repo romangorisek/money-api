@@ -17,7 +17,7 @@ Route::group(['middleware' => ['catchExceptions', 'api']], function() {
 
     Route::post('register', 'UserController@register');
 
-    Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
+    Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
         Route::post('login', 'AuthController@login');
         Route::post('logout', 'AuthController@logout');
         Route::post('refresh', 'AuthController@refresh');
