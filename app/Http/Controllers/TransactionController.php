@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\Click;
 use App\Transaction;
 
@@ -14,6 +15,7 @@ class TransactionController extends CrudController
     {
         if ($transaction = Transaction::create(request($this->fields))) {
             Click::registerAll($transaction, auth()->user());
+            Account::apply($transaction);
             return $transaction;
         }
         throw new \Exception("Item could not be created");

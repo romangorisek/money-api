@@ -11,13 +11,14 @@ class AccountsSeeder extends Seeder
      */
     public function run()
     {
-        $accounts = ["SKB", "Delavska hranilnica", "Gotovina"];
+        $accounts = [
+            ["title" => "SKB", "balance" => 0, "thumb" => "http://money-api.loc/imgs/skb.png"],
+            ["title" => "Delavska hranilnica", "balance" => 0, "thumb" => "http://money-api.loc/imgs/dh.png"],
+            ["title" => "Gotovina", "balance" => 0, "thumb" => "http://money-api.loc/imgs/cash.png"],
+            ["title" => "MasterCard", "balance" => 0, "thumb" => "http://money-api.loc/imgs/mc.png"]
+        ];
         foreach ($accounts as $account) {
-            $acc = new \App\Account;
-            $acc->title = $account;
-            $acc->balance = 1100.01;
-            $acc->thumb = "not ready";
-            $acc->save();
+            \App\Account::create($account);
         }
     }
 }
