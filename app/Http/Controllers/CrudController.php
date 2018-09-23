@@ -49,7 +49,10 @@ class CrudController extends Controller {
         $element = ($this->model)::find($id);
 
         if ($element && $element->delete()) {
-            return ["Item deleted"];
+            return [
+                "success" => true,
+                "msg" => "Item deleted"
+            ];
         }
         return ["Item could not be deleted"];
     }
