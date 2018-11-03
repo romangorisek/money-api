@@ -23,13 +23,13 @@ class CheckClient
 
     public function checkToken($request)
     {
-        $client = Client::getByIp($request->ip());
-        if (!$client) {
-            throw new \Exception("Client not registered");
-        }
-        $header_api_key = $_SERVER['HTTP_API_KEY'] ?? null;
+        // $client = Client::getByIp($request->ip());
+        // if (!$client) {
+        //     throw new \Exception("Client not registered");
+        // }
+        // $header_api_key = $_SERVER['HTTP_API_KEY'] ?? null;
 
-        if ($client->token !== $header_api_key)
-            throw new \Exception("Client not registered");
+        // if ($client->token !== $header_api_key)
+        //     throw new \Exception("Client not registered");
     }
 }
