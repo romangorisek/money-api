@@ -43,6 +43,7 @@ class TransactionController extends CrudController
         if (isset($filters["account"])) {
             $transactions = $transactions->where("account_id", $filters["account"]);
         }
+        $transactions->orderBy("done_on", 'desc');
         return $transactions;
     }
 }
