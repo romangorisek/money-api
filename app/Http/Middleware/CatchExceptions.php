@@ -19,13 +19,13 @@ class CatchExceptions
         $e = $response->exception;
 
         if ($e) {
-            return $this->formatedError($e);
+            return $this->formattedError($e);
         }
         
         return $response;
     }
 
-    private function formatedError($e)
+    private function formattedError($e)
     {
         return response()->json([
             "error" => [
@@ -36,6 +36,6 @@ class CatchExceptions
                     "line" => $e->getline(),
                 ]
             ]
-        ]);
+        ], 400);
     }
 }
