@@ -8,5 +8,5 @@ use App\Client;
 class ClientController extends CrudController
 {
     protected $model = Client::class;
-    protected $fields = ['title', 'ip', 'token'];
+    protected $fields = ['title'];
 }
