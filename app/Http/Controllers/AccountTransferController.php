@@ -14,16 +14,17 @@ class AccountTransferController extends CrudController
 
     public function create()
     {
-        $transaction = DB::transaction(function () {
+        return DB::transaction(function () {
           $item = ($this->model)::create(request($this->fields));
           $accountFrom = Account::find(request()->input('account_from_id'));
-          $accountFrom->update(['balance' => ((int) $accountFrom->balance - request()->input('amount'))]);
+          if (!$accountFrom->update(['balance' => ((int) $accountFrom->balance - request()->input('amount'))])) {
+            throw new \Exception("Item could not be created");
+          }
           $accountTo = Account::find(request()->input('account_to_id'));
-          $accountTo->update(['balance' => ((int) $accountTo->balance + request()->input('amount'))]);
+          if (!$accountTo->update(['balance' => ((int) $accountTo->balance + request()->input('amount'))])) {
+            throw new \Exception("Item could not be created");
+          }
+          return response()->json(['message' => 'Transaction saved!']);
         }, 1);
-        if ($transaction) {
-            return $transaction;
-        }
-        throw new \Exception("Item could not be created");
     }
 }
